@@ -1,0 +1,962 @@
+@media (max-width: 767.99px) {
+    .sc_wrapper {
+        width: 100%;
+        min-height: 100vh;
+        background-color: #fcf9ed96;
+    }
+}
+@media (min-width: 768px) {
+    .sc_wrapper {
+        width: 600px;
+        margin: 0 auto;
+        min-height: 100vh;
+        background-color: #fcf9ed96;
+    }
+}
+.bg-bg {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: -1;
+    background-color: #000000;
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.6;
+    }
+}
+.header {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .logo {
+        width: 200px;
+        height: 50px;
+        overflow: hidden;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+}
+
+.dasaran {
+    width: 100%;
+    height: 100vh;
+    overflow-y: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 500;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+.dasaran.show {
+    width: 100%;
+    height: 100vh;
+    overflow-y: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 500;
+    transform: translateX(0);
+    transition: transform 0.3s ease;
+}
+
+.mau {
+    transform: scaleY(1);
+    transform-origin: top;
+    transition: transform 0.3s ease;
+}
+@media (max-width: 1023px) {
+    .turun {
+        transform: scaleY(0);
+        transform-origin: top;
+        transition: transform 0.3s ease;
+    }
+}
+
+/*************** DASHBOARD **************/
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgba(128, 128, 128, 0.267);
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 153, 0, 0.671);
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #b37400dc;
+}
+
+@media (max-width: 767.99px) {
+    a.sidebar_link {
+        position: relative;
+    }
+    .sidebar_link::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        background-color: transparent;
+    }
+    .dashboard_container.with_text {
+        width: 100%;
+
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        .sidebar {
+            width: 100%;
+            .sidebar_wrapper {
+                position: relative;
+                width: 100%;
+
+                .app_logo {
+                    margin: 0 auto;
+                    width: 150px;
+                    height: 50px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    img {
+                        width: 100%;
+                        height: 1000%;
+                        object-fit: contain;
+                    }
+                }
+                .tombol_nav_sidebar.jeje {
+                    display: none;
+                }
+                .menu_slide {
+                    position: absolute;
+                    top: 8px;
+                    right: 0.5rem;
+                    padding: 0.5rem 0.5rem;
+                    background-color: #643806;
+                    color: #fff;
+                    border-radius: 20px;
+                }
+                .menu_wrapper.mlebu {
+                    max-height: 0;
+                    transform: scaleY(0);
+                    transform-origin: top;
+                    transition: transform 0.3s 0.3s ease-in-out,
+                        max-height 0.3s ease-in-out;
+                }
+                .menu_wrapper {
+                    max-height: 200px;
+                    overflow-y: auto;
+                    padding-top: 0.5rem;
+                    transform: scaleY(1);
+                    transform-origin: top;
+                    transition: transform 0.3s ease-in-out,
+                        max-height 0.5s ease-in-out;
+                    ul {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        .sidebar_menu {
+                            position: relative;
+                            padding: 5px 0;
+                            width: calc(100% - 20px);
+                            margin-bottom: 7px;
+                            border-radius: 20px;
+                            background-color: #e9e7e43b;
+                            // overflow: hidden;
+                            box-shadow: 0 2px 2px 2px #1d1d1d25;
+
+                            .sidebar_link {
+                                width: 100%;
+                                display: grid;
+                                grid-template-columns: 50px 1fr;
+                                justify-content: start;
+                                align-items: center;
+                                gap: 0.5rem;
+                                .link_ic {
+                                    width: 50px;
+                                    height: 30px;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    i {
+                                        font-size: 1.5rem;
+                                    }
+                                }
+
+                                span {
+                                    width: 100%;
+                                    height: 30px;
+                                    display: flex;
+                                    justify-content: start;
+                                    align-items: center;
+                                    font-weight: 600;
+                                    font-size: large;
+                                }
+                            }
+
+                            ul.ada_sub {
+                                max-height: 80px;
+                                transition: max-height 0.5s ease;
+
+                                .sidebar_menu:nth-child(1) {
+                                    margin-top: 5px;
+                                }
+                                .sidebar_menu {
+                                    transform: scale(1);
+                                    width: 100%;
+                                    padding: 0;
+                                    padding: 0 5px;
+                                    margin: 0;
+                                    margin-top: 5px;
+                                    background-color: transparent;
+                                    box-shadow: none;
+                                    transition: all 0.5 ease-in-out;
+                                    .sidebar_link {
+                                        width: calc(100% - 10px);
+                                        margin: auto;
+                                        display: grid;
+                                        grid-template-columns: 30px 1fr;
+                                        justify-content: start;
+                                        align-items: center;
+                                        gap: 1rem;
+                                        background-color: #00000011;
+                                        border-radius: 15px;
+                                        .link_ic {
+                                            width: 20px;
+                                            height: 20px;
+                                            margin: auto;
+                                            border-radius: 12px;
+                                            background-color: #f8d431;
+                                            display: flex;
+                                            justify-content: center;
+                                            align-items: center;
+                                            i {
+                                                font-size: 1rem;
+                                            }
+                                        }
+
+                                        span {
+                                            width: 100%;
+                                            height: 30px;
+                                            display: flex;
+                                            justify-content: start;
+                                            align-items: center;
+                                            font-weight: 400;
+                                            font-size: 15px;
+                                        }
+                                    }
+                                    .sidebar_link:hover {
+                                        background-color: #dfcece5d;
+                                        border-radius: 15px;
+                                    }
+                                    .sidebar_link.active {
+                                        background-color: #dfcece5d;
+                                        border-radius: 15px;
+                                        .link_ic {
+                                            background-color: #ff8800;
+                                        }
+                                    }
+                                }
+                            }
+
+                            ul {
+                                max-height: 0px;
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: center;
+                                align-items: center;
+                                transform-origin: top;
+                                // overflow: hidden;
+                                transition: max-height 0.5s ease;
+
+                                .sidebar_menu {
+                                    transform: scale(0);
+                                    width: 100%;
+                                    padding: 0;
+                                    padding: 0 5px;
+                                    margin: 0;
+                                    margin-top: 5px;
+                                    background-color: transparent;
+                                    box-shadow: none;
+                                    transition: all 0.5 ease-in-out;
+                                    .sidebar_link {
+                                        width: calc(100% - 10px);
+                                        margin: auto;
+                                        display: grid;
+                                        grid-template-columns: 30px 1fr;
+                                        justify-content: start;
+                                        align-items: center;
+                                        gap: 1rem;
+                                        background-color: #00000011;
+                                        border-radius: 15px;
+                                        .link_ic {
+                                            width: 20px;
+                                            height: 20px;
+                                            margin: auto;
+                                            border-radius: 12px;
+                                            background-color: #f8d431;
+                                            display: flex;
+                                            justify-content: center;
+                                            align-items: center;
+                                            i {
+                                                font-size: 1rem;
+                                            }
+                                        }
+
+                                        span {
+                                            width: 100%;
+                                            height: 30px;
+                                            display: flex;
+                                            justify-content: start;
+                                            align-items: center;
+                                            font-weight: 400;
+                                            font-size: 15px;
+                                        }
+                                    }
+                                    .sidebar_link:hover {
+                                        background-color: #dfcece5d;
+                                        border-radius: 15prgba
+                                            (255, 255, 255, 0.158);
+                                        .link_ic {
+                                            background-color: #ff8800;
+                                        }
+                                    }
+                                    .sidebar_link.active {
+                                        background-color: #dfcece5d;
+                                        border-radius: 15prgba
+                                            (255, 255, 255, 0.158);
+                                    }
+                                }
+                            }
+                        }
+                        .sidebar_menu:hover {
+                            background-color: #643806;
+
+                            .sidebar_link {
+                                color: #fff7ee;
+                            }
+                        }
+                        .sidebar_menu.active {
+                            background-color: #643806;
+                            .sidebar_link {
+                                color: #fff7ee;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    a.sidebar_link {
+        position: relative;
+    }
+    .sidebar_link::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        background-color: transparent;
+    }
+    .dashboard_container.with_text {
+        width: 100%;
+        height: 100vh;
+        display: grid;
+        grid-template-columns: 220px auto;
+        transition: all 0.5s ease;
+        .sidebar {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background-color: #eec28f;
+
+            .sidebar_wrapper {
+                width: 100%;
+                height: 100vh;
+                display: grid;
+                grid-template-rows: 60px auto;
+                gap: 1rem;
+
+                .app_logo {
+                    margin: auto;
+                    max-width: 180px;
+                    height: 60px;
+                    overflow: hidden;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain;
+                    }
+                }
+                .tombol_nav_sidebar {
+                    position: absolute;
+                    right: -50px;
+                    top: 12.5px;
+                    color: #000;
+                    background-color: #64380638;
+                    width: 35px;
+                    height: 35px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    z-index: 100;
+                }
+                .tombol_nav_sidebar:hover {
+                    position: absolute;
+                    right: -50px;
+                    top: 12.5px;
+                    color: #f8d431;
+                    background-color: #643806;
+                }
+                .menu_wrapper {
+                    overflow-y: auto;
+                    padding-top: 0.5rem;
+                    ul {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        .sidebar_menu {
+                            position: relative;
+                            padding: 5px 0;
+                            width: calc(100% - 20px);
+                            margin-bottom: 7px;
+                            border-radius: 20px;
+                            background-color: #e9e7e43b;
+                            // overflow: hidden;
+                            box-shadow: 0 2px 2px 2px #1d1d1d25;
+
+                            .sidebar_link {
+                                width: 100%;
+                                display: grid;
+                                grid-template-columns: 50px 1fr;
+                                justify-content: start;
+                                align-items: center;
+                                gap: 0.5rem;
+                                .link_ic {
+                                    width: 50px;
+                                    height: 30px;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    i {
+                                        font-size: 1.5rem;
+                                    }
+                                }
+
+                                span {
+                                    width: 100%;
+                                    height: 30px;
+                                    display: flex;
+                                    justify-content: start;
+                                    align-items: center;
+                                    font-weight: 600;
+                                    font-size: large;
+                                }
+                            }
+
+                            ul.ada_sub {
+                                max-height: 80px;
+                                transition: max-height 0.5s ease;
+
+                                .sidebar_menu:nth-child(1) {
+                                    margin-top: 5px;
+                                }
+                                .sidebar_menu {
+                                    transform: scale(1);
+                                    width: 100%;
+                                    padding: 0;
+                                    padding: 0 5px;
+                                    margin: 0;
+                                    margin-top: 5px;
+                                    background-color: transparent;
+                                    box-shadow: none;
+                                    transition: all 0.5 ease-in-out;
+                                    .sidebar_link {
+                                        width: calc(100% - 10px);
+                                        margin: auto;
+                                        display: grid;
+                                        grid-template-columns: 30px 1fr;
+                                        justify-content: start;
+                                        align-items: center;
+                                        gap: 1rem;
+                                        background-color: #00000011;
+                                        border-radius: 15px;
+                                        .link_ic {
+                                            width: 20px;
+                                            height: 20px;
+                                            margin: auto;
+                                            border-radius: 12px;
+                                            background-color: #f8d431;
+                                            display: flex;
+                                            justify-content: center;
+                                            align-items: center;
+                                            i {
+                                                font-size: 1rem;
+                                            }
+                                        }
+
+                                        span {
+                                            width: 100%;
+                                            height: 30px;
+                                            display: flex;
+                                            justify-content: start;
+                                            align-items: center;
+                                            font-weight: 400;
+                                            font-size: 15px;
+                                        }
+                                    }
+                                    .sidebar_link:hover {
+                                        background-color: #dfcece5d;
+                                        border-radius: 15px;
+                                    }
+                                    .sidebar_link.active {
+                                        background-color: #dfcece5d;
+                                        border-radius: 15px;
+                                        .link_ic {
+                                            background-color: #ff8800;
+                                        }
+                                    }
+                                }
+                            }
+
+                            ul {
+                                max-height: 0px;
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: center;
+                                align-items: center;
+                                transform-origin: top;
+                                // overflow: hidden;
+                                transition: max-height 0.5s ease;
+
+                                .sidebar_menu {
+                                    transform: scale(0);
+                                    width: 100%;
+                                    padding: 0;
+                                    padding: 0 5px;
+                                    margin: 0;
+                                    margin-top: 5px;
+                                    background-color: transparent;
+                                    box-shadow: none;
+                                    transition: all 0.5 ease-in-out;
+                                    .sidebar_link {
+                                        width: calc(100% - 10px);
+                                        margin: auto;
+                                        display: grid;
+                                        grid-template-columns: 30px 1fr;
+                                        justify-content: start;
+                                        align-items: center;
+                                        gap: 1rem;
+                                        background-color: #00000011;
+                                        border-radius: 15px;
+                                        .link_ic {
+                                            width: 20px;
+                                            height: 20px;
+                                            margin: auto;
+                                            border-radius: 12px;
+                                            background-color: #f8d431;
+                                            display: flex;
+                                            justify-content: center;
+                                            align-items: center;
+                                            i {
+                                                font-size: 1rem;
+                                            }
+                                        }
+
+                                        span {
+                                            width: 100%;
+                                            height: 30px;
+                                            display: flex;
+                                            justify-content: start;
+                                            align-items: center;
+                                            font-weight: 400;
+                                            font-size: 15px;
+                                        }
+                                    }
+                                    .sidebar_link:hover {
+                                        background-color: #dfcece5d;
+                                        border-radius: 15prgba
+                                            (255, 255, 255, 0.158);
+                                        .link_ic {
+                                            background-color: #ff8800;
+                                        }
+                                    }
+                                    .sidebar_link.active {
+                                        background-color: #dfcece5d;
+                                        border-radius: 15prgba
+                                            (255, 255, 255, 0.158);
+                                    }
+                                }
+                            }
+                        }
+                        .sidebar_menu:hover {
+                            background-color: #643806;
+
+                            .sidebar_link {
+                                color: #fff7ee;
+                            }
+                        }
+                        .sidebar_menu.active {
+                            background-color: #643806;
+                            .sidebar_link {
+                                color: #fff7ee;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .dashboard_container {
+        width: 100%;
+        height: 100vh;
+        display: grid;
+        grid-template-columns: 70px auto;
+        transition: all 0.5s ease;
+        .sidebar {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background-color: #eec28f;
+
+            .sidebar_wrapper {
+                width: 100%;
+                height: 100vh;
+                display: grid;
+                grid-template-rows: 60px auto;
+                gap: 1rem;
+
+                .app_logo {
+                    margin: auto;
+                    max-width: 180px;
+                    height: 60px;
+                    overflow: hidden;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain;
+                    }
+                }
+                .tombol_nav_sidebar {
+                    position: absolute;
+                    right: -50px;
+                    top: 12.5px;
+                    color: #000;
+                    background-color: #64380638;
+                    width: 35px;
+                    height: 35px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    z-index: 100;
+                }
+                .tombol_nav_sidebar:hover {
+                    position: absolute;
+                    right: -50px;
+                    top: 12.5px;
+                    color: #f8d431;
+                    background-color: #643806;
+                }
+                .menu_wrapper {
+                    overflow-y: auto;
+                    padding-top: 0.5rem;
+                    ul {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        .sidebar_menu {
+                            position: relative;
+                            padding: 5px 0;
+                            width: calc(100% - 20px);
+                            margin-bottom: 7px;
+                            border-radius: 20px;
+                            background-color: #e9e7e43b;
+                            overflow: hidden;
+                            box-shadow: 0 2px 2px 2px #1d1d1d25;
+
+                            .sidebar_link {
+                                position: relative;
+                                width: 100%;
+                                display: grid;
+                                grid-template-columns: 50px;
+                                justify-content: start;
+                                align-items: center;
+                                gap: 0.5rem;
+                                .link_ic {
+                                    width: 50px;
+                                    height: 30px;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    i {
+                                        font-size: 1.5rem;
+                                    }
+                                }
+                                span {
+                                    position: relative;
+                                    display: inline-block;
+                                }
+                                span.tx_hilang {
+                                    visibility: hidden;
+                                    width: 120px;
+                                    background-color: #555;
+                                    color: #fff;
+                                    text-align: center;
+                                    border-radius: 6px;
+                                    padding: 5px 0;
+                                    position: absolute;
+                                    z-index: 1;
+                                    bottom: 125%;
+                                    left: 50%;
+                                    margin-left: -60px;
+                                    opacity: 0;
+                                    transition: opacity 0.3s;
+                                    font-size: 12px;
+                                }
+                                span.tx_hilang::after {
+                                    content: "";
+                                    position: absolute;
+                                    top: 5px;
+                                    right: -100%;
+                                    margin-left: -5px;
+                                    border-width: 5px;
+                                    border-style: solid;
+                                }
+                            }
+
+                            ul.ada_sub {
+                                max-height: 80px;
+                                transform: scale(1);
+                                transition: all 0.5 ease;
+
+                                .sidebar_menu:nth-child(1) {
+                                    margin-top: 5px;
+                                }
+                                .sidebar_menu {
+                                    width: 100%;
+                                    padding: 0;
+                                    padding: 0 5px;
+                                    margin: 0;
+                                    margin-top: 5px;
+                                    background-color: transparent;
+                                    box-shadow: none;
+                                    .sidebar_link {
+                                        width: calc(100% - 10px);
+                                        height: 30px;
+                                        margin: auto;
+                                        display: grid;
+                                        grid-template-columns: 30px;
+                                        justify-content: start;
+                                        align-items: center;
+                                        gap: 1rem;
+                                        background-color: #00000011;
+                                        border-radius: 15px;
+                                        .link_ic {
+                                            width: 20px;
+                                            height: 20px;
+                                            margin: auto;
+                                            border-radius: 12px;
+                                            background-color: #f8d431;
+                                            display: flex;
+                                            justify-content: center;
+                                            align-items: center;
+                                            i {
+                                                font-size: 1rem;
+                                            }
+                                        }
+                                    }
+                                    .sidebar_link:hover {
+                                        background-color: #dfcece5d;
+                                        border-radius: 15px;
+                                    }
+                                    .sidebar_link:hover {
+                                        span.tx_hilang {
+                                            visibility: visible;
+                                            opacity: 1;
+                                        }
+                                    }
+                                    .sidebar_link.active {
+                                        background-color: #dfcece5d;
+                                        border-radius: 15px;
+                                        .link_ic {
+                                            background-color: #ff8800;
+                                        }
+                                    }
+                                }
+                            }
+
+                            ul {
+                                max-height: 0px;
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: center;
+                                align-items: center;
+                                transform-origin: top;
+                                // overflow: hidden;
+                                transition: max-height 0.5s ease;
+                                transform: scale(0);
+                                transition: all 0.5 ease;
+
+                                .sidebar_menu {
+                                    width: 100%;
+                                    padding: 0;
+                                    padding: 0 5px;
+                                    margin: 0;
+                                    margin-top: 5px;
+                                    background-color: transparent;
+                                    box-shadow: none;
+                                    .sidebar_link {
+                                        width: calc(100% - 10px);
+                                        margin: auto;
+                                        display: grid;
+                                        grid-template-columns: 30px;
+                                        justify-content: start;
+                                        align-items: center;
+                                        gap: 1rem;
+                                        background-color: #00000011;
+                                        border-radius: 15px;
+                                        .link_ic {
+                                            width: 20px;
+                                            height: 20px;
+                                            margin: auto;
+                                            border-radius: 12px;
+                                            background-color: #f8d431;
+                                            display: flex;
+                                            justify-content: center;
+                                            align-items: center;
+                                            i {
+                                                font-size: 1rem;
+                                            }
+                                        }
+                                    }
+                                    .sidebar_link:hover {
+                                        background-color: #dfcece5d;
+                                        border-radius: 15px;
+                                        .link_ic {
+                                            background-color: #ff8800;
+                                        }
+                                    }
+                                    .sidebar_link.active {
+                                        background-color: #dfcece5d;
+                                        border-radius: 15px;
+                                    }
+                                }
+                            }
+                        }
+                        .sidebar_menu:hover {
+                            background-color: #643806;
+
+                            .sidebar_link {
+                                color: #fff7ee;
+                            }
+                        }
+                        .sidebar_menu.active {
+                            background-color: #643806;
+                            .sidebar_link {
+                                color: #fff7ee;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.tombol_nav_sidebar {
+    i {
+        rotate: 180deg;
+        transition: rotate 0.5 ease;
+    }
+    i.puter {
+        rotate: 0deg;
+        transition: rotate 0.5 ease;
+    }
+}
+
+@media (max-width: 767.99px) {
+    .konten {
+        .dashboard_header.show {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            height: 60px;
+            align-items: center;
+            justify-content: space-between;
+            padding-left: 65px;
+            padding-right: 1rem;
+            box-shadow: 0px 0px 6px 2px #eec28f6e;
+            z-index: 1;
+            position: relative;
+        }
+        .dashboard_header {
+            display: none;
+        }
+
+        .dashboard_main {
+            width: 100%;
+            height: calc(100vh - 60px);
+            overflow-y: auto;
+            padding: 1rem;
+            background-color: #fff8f0;
+            .dash_wrapper {
+                width: 100%;
+            }
+        }
+    }
+}
+@media (min-width: 768px) {
+    .konten {
+        .dashboard_header {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            height: 60px;
+            align-items: center;
+            justify-content: space-between;
+            padding-left: 65px;
+            padding-right: 1rem;
+            box-shadow: 0px 0px 6px 2px #eec28f6e;
+            z-index: 1;
+            position: relative;
+        }
+
+        .dashboard_main {
+            width: 100%;
+            height: calc(100vh - 60px);
+            overflow-y: auto;
+            padding: 1rem;
+            background-color: #fff8f0;
+            .dash_wrapper {
+                width: 100%;
+            }
+        }
+    }
+}
