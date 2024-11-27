@@ -15,17 +15,17 @@
         </button>
         <div class="menu_wrapper mlebu">
             <ul>
-                <li class="sidebar_menu ">
+                <li class="sidebar_menu {{ request()->routeIs('pages') ? 'active' : '' }}">
                     <a href="#" class="sidebar_link">
                         <div class="link_ic">
                             <i class="fa-regular fa-newspaper"></i>
                         </div>
                         <span>Pages</span>
                     </a>
-                    <ul class="sub_menu">
-                        <li class="sidebar_menu">
-                            <a href="dashboard/pages"
-                                class="sidebar_link {{ request()->routeIs('dashboard/pages') ? 'active' : '' }}">
+                    <ul class="sub_menu {{ request()->routeIs('pages', 'pages.create') ? 'ada_sub' : '' }}">
+                        <li class="sidebar_menu active">
+                            <a href="{{ route('pages') }}"
+                                class="sidebar_link {{ request()->routeIs('pages', 'pages.create') ? 'active' : '' }}">
                                 <div class="link_ic">
                                     <i class="fa-solid fa-caret-right"></i>
                                 </div>
@@ -37,21 +37,22 @@
                                 <div class="link_ic">
                                     <i class="fa-solid fa-caret-right"></i>
                                 </div>
-                                <span>sub halaman</span>
+                                <span>All Page</span>
                             </a>
                         </li>
                     </ul>
                 </li>
-                <li class="sidebar_menu">
-                    <a href="#" class="sidebar_link">
+                <li class="sidebar_menu {{ request()->routeIs('tampilan') ? 'active' : '' }}">
+                    <a href="#" class="sidebar_link ">
                         <div class="link_ic">
                             <i class="fa-regular fa-newspaper"></i>
                         </div>
                         <span>Layout</span>
                     </a>
-                    <ul class="sub_menu cd">
+                    <ul class="sub_menu {{ request()->routeIs('tampilan') ? 'ada_sub' : '' }}">
                         <li class="sidebar_menu">
-                            <a href="#" class="sidebar_link">
+                            <a href="/dashboard/tampilan"
+                                class="sidebar_link {{ request()->routeIs('tampilan') ? 'active' : '' }}">
                                 <div class="link_ic">
                                     <i class="fa-solid fa-caret-right"></i>
                                 </div>

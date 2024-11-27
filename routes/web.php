@@ -20,7 +20,9 @@ Route::get('/slide-depan', [App\Http\Controllers\FrontWebController::class, 'sli
 Route::group(['prefix' => 'dashboard', 'middleware' => ['auth']], function () {
 
     Route::get('/', [App\Http\Controllers\DashboardController::class, 'index']);
-    Route::get('/pages', [App\Http\Controllers\DashboardController::class, 'pages']);
-    Route::get('/tampilan', [App\Http\Controllers\DashboardController::class, 'tampilan']);
-    Route::get('/setting', [App\Http\Controllers\DashboardController::class, 'setting']);
+    Route::get('/pages', [App\Http\Controllers\DashboardController::class, 'pages'])->name('pages');
+    Route::get('/pages/create', [App\Http\Controllers\DashboardController::class, 'pages'])->name('pages.create');
+    Route::get('/tampilan', [App\Http\Controllers\DashboardController::class, 'tampilan'])->name('tampilan');
+    Route::get('/setting', [App\Http\Controllers\DashboardController::class, 'setting'])->name('setting');
+    // Route::get('/kategori', [App\Http\Controllers\DashboardController::class, 'Kategori']);
 });

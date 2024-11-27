@@ -1,13 +1,13 @@
 <div>
     <x-slot name='bread'>
-        bread
+
     </x-slot>
     <x-slot name='theMenu'>
-        Menu
+        Buat Halaman
     </x-slot>
 
-    <div>
-        Kategori
+    <div class="edit_halaman">
+        tampilan
     </div>
 
 </div>
