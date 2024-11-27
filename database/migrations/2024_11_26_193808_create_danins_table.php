@@ -13,15 +13,16 @@ return new class extends Migration
     {
         Schema::create('danins', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
+            $table->string('nama')->nullable();
             $table->string('bagian')->nullable();
             $table->string('gambar')->nullable();
             $table->string('link')->nullable();
             $table->longText('kode')->nullable();
             $table->longText('informasi')->nullable();
-            $table->boolean('aktif')->default('false');
+            $table->boolean('aktif')->default(false);
             $table->integer('posisi')->nullable();
             $table->unsignedBigInteger('danin_id')->nullable();
+            $table->unsignedBigInteger('idnya')->nullable();
             $table->timestamps();
         });
     }

@@ -9,7 +9,7 @@ use App\Http\Controllers\RegisterUserController;
 Route::get('/register', [RegisterUserController::class, 'create'])->name('create.register')->middleware('guest');
 Route::post('/register', [RegisterUserController::class, 'store'])->name('store.register')->middleware('guest');
 
-Route::get('/login', [SessionController::class, 'create'])->middleware('guest');
+Route::get('/login', [SessionController::class, 'create'])->middleware('guest')->name('login');
 Route::post('/login', [SessionController::class, 'store'])->middleware('guest');
 Route::post('/logout', [SessionController::class, 'destroy'])->middleware('auth');
 

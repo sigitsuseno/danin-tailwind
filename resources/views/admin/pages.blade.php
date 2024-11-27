@@ -1,5 +1,5 @@
 <x-layout-main>
 
-    @livewire('admin.dashboard')
+    @livewire('admin.halaman')
 
 </x-layout-main>

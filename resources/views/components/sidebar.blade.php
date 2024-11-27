@@ -24,7 +24,8 @@
                     </a>
                     <ul class="sub_menu">
                         <li class="sidebar_menu">
-                            <a href="#" class="sidebar_link ">
+                            <a href="dashboard/pages"
+                                class="sidebar_link {{ request()->routeIs('dashboard/pages') ? 'active' : '' }}">
                                 <div class="link_ic">
                                     <i class="fa-solid fa-caret-right"></i>
                                 </div>
