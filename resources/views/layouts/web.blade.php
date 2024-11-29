@@ -26,6 +26,9 @@
     <div class="relative w-full min-h-screen">
 
         <x-atasan />
+        <div class="dasaran {{ request()->routeIs('/') ? 'show' : '' }}">
+            @include('slide')
+        </div>
 
 
 

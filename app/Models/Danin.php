@@ -16,5 +16,6 @@ class Danin extends Model
         'aktif',
         'posisi',
         'danin_id',
+        'idnya',
     ];
 }

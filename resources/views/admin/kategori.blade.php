@@ -1,5 +1,13 @@
-<x-layout-main>
+<div>
+    <x-slot name='bread'>
+        bread
+    </x-slot>
+    <x-slot name='theMenu'>
+        Menu
+    </x-slot>
 
-    @livewire('admin.kategori')
+    <div>
+        Kategori
+    </div>
 
-</x-layout-main>
+</div>

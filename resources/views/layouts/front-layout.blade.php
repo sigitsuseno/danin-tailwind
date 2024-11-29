@@ -19,7 +19,10 @@
 <body class="font-sans antialiased text-gray-900">
     <div class="w-full min-h-screen bg-orange-100 dark:bg-slate-900">
         <x-atasan />
-        <div class="dasaran">
+        <div class="dasaran {{ request()->routeIs('beranda') ? 'show' : '' }} bg-orange-100">
+            {{-- <div class="bg-orange-100 bg-bg">
+                <img src="/asset/img/bgbg.jpg" alt="">
+            </div> --}}
             @include('slide')
         </div>
         <x-header></x-header>

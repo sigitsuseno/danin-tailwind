@@ -1,0 +1,42 @@
+@media (max-width: 767.99px) {
+    .buat-halaman {
+        width: 100%;
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 1rem;
+
+        .des_lay {
+            width: 100%;
+            background-color: #ffffff;
+            height: calc(100vh - 2rem - 60px);
+            border-radius: 15px;
+        }
+        .rightbar {
+            background-color: #ffffff;
+            border-radius: 15px;
+        }
+    }
+}
+@media (min-width: 768px) {
+    .buat-halaman {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 220px;
+        gap: 1rem;
+        .des_lay {
+            width: 100%;
+            background-color: #ffffff;
+            height: calc(100vh - 2rem - 60px);
+            border-radius: 15px;
+            padding: 1rem;
+        }
+        .rightbar {
+            background-color: #ffffff;
+            border-radius: 15px;
+        }
+    }
+}
+
+.layout_1_colom {
+    //
+}

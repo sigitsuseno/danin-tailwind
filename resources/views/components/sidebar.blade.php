@@ -42,6 +42,25 @@
                         </li>
                     </ul>
                 </li>
+                <li class="sidebar_menu {{ request()->routeIs('media') ? 'active' : '' }}">
+                    <a href="#" class="sidebar_link ">
+                        <div class="link_ic">
+                            <i class="fa-regular fa-newspaper"></i>
+                        </div>
+                        <span>Media</span>
+                    </a>
+                    <ul class="sub_menu {{ request()->routeIs('media') ? 'ada_sub' : '' }}">
+                        <li class="sidebar_menu">
+                            <a href="/dashboard/media"
+                                class="sidebar_link {{ request()->routeIs('media') ? 'active' : '' }}">
+                                <div class="link_ic">
+                                    <i class="fa-solid fa-caret-right"></i>
+                                </div>
+                                <span>Galeri</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 <li class="sidebar_menu {{ request()->routeIs('tampilan') ? 'active' : '' }}">
                     <a href="#" class="sidebar_link ">
                         <div class="link_ic">

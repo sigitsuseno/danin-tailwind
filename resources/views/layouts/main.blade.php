@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{{ asset('asset/fontawesome/css/all.min.css') }}">
     <!-- Styles / Scripts -->
 
-    @vite(['resources/css/app.css', 'resources/scss/app.scss', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/scss/app.scss', 'resources/scss/layout.scss', 'resources/js/app.js'])
 
 </head>
 
@@ -47,8 +47,8 @@
                 </div>
             </main>
         </div>
-
     </div>
+
 </body>
 
 </html>

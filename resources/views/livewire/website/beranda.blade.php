@@ -46,10 +46,10 @@
         </div>
     </section>
     <section class="mt-6">
-        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@dani.pie79" data-unique-id="dani.pie79"
+        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@piesusudarin" data-unique-id="piesusudarin"
             data-embed-from="embed_page" data-embed-type="creator"
             style=" min-width:288px; overflow:-moz-hidden-unscrollable">
-            <section> <a target="_blank" href="https://www.tiktok.com/@dani.pie79?refer=creator_embed">@dani.pie79</a>
+            <section> <a target="_blank" href="https://www.tiktok.com/@piesusudarin?refer=creator_embed">@dani.pie79</a>
             </section>
         </blockquote>
         <script async src="https://www.tiktok.com/embed.js"></script>

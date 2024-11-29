@@ -1,6 +1,6 @@
 <div id="link_sebelum"
     class="fixed inset-0 flex items-center justify-between
-w-full h-10 gap-3 px-4 z-[900] bg-orange-50">
+w-full h-10 gap-3 px-4 z-[900] bg-transparent">
     <div class="flex flex-row items-center gap-2">
         <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path

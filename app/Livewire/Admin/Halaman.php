@@ -18,7 +18,7 @@ class Halaman extends Component
     $posisi,
     $danin_id;
 
-    public $tema;
+    public $handle = 'edit';
     public function render()
     {
         return view('livewire.admin.halaman', [
@@ -28,25 +28,13 @@ class Halaman extends Component
 
     public function mount()
     {
-        $this->tema = [
-            'wrapper' => '    <div class="body_wrapper">
-        <header class="header">
-            Header
-        </header>
-        <main class="main">
-            Main
-        </main>
-        <aside class="sidebar">
-            <div class="sidebar_wrapper">
-                sidebar
-            </div>
-        </aside>
-        <footer class="footer">
-            footer
-        </footer>
-    </div>
-',
-            'header' => 'ini isi header'
-        ];
+        //
     }
+
+    public function handleButton($menu)
+    {
+        $this->handle = $menu ;
+    }
+
+
 }

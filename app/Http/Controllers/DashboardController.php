@@ -22,4 +22,12 @@ class DashboardController extends Controller
     {
         return view('admin.setting');
     }
+    public function media()
+    {
+        return view('admin.media-galery');
+    }
+    public function settingLayout()
+    {
+        return view('admin.tampilan_layout');
+    }
 }
