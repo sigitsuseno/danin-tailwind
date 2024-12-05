@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use App\Posisi;
 use Illuminate\Database\Eloquent\Model;
 
 class Danin extends Model
 {
     protected $fillable = [
         'nama',
-        'bagian',
+        'slug',
         'gambar',
         'link',
         'kode',
@@ -18,4 +19,16 @@ class Danin extends Model
         'danin_id',
         'idnya',
     ];
+
+    public function casts()
+    {
+        return [
+            'posisi' => Posisi::class
+        ];
+    }
+
+    public function images()
+    {
+        return $this->hasMany(ImageGalery::class, 'image_id');
+    }
 }

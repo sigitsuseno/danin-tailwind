@@ -29,7 +29,7 @@
                                 <div class="link_ic">
                                     <i class="fa-solid fa-caret-right"></i>
                                 </div>
-                                <span>Create</span>
+                                <span>Create Page</span>
                             </a>
                         </li>
                         <li class="sidebar_menu">
@@ -37,7 +37,7 @@
                                 <div class="link_ic">
                                     <i class="fa-solid fa-caret-right"></i>
                                 </div>
-                                <span>All Page</span>
+                                <span>Page Component</span>
                             </a>
                         </li>
                     </ul>

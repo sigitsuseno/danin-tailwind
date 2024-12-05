@@ -1,7 +1,7 @@
-{{-- <div class="sc_wrapper">
+<div class="sc_wrapper">
     <header class="header">
         <div class="header_img">
-            <img src="{{ asset('img/kue_atas_kompres.png') }}" alt="">
+            <img src="{{ asset('storage/image/' . $slide_depan->gambar) }}" alt="">
         </div>
         <div class="logo">
             <img src="/asset/img/logo-leter.png" alt="">
@@ -96,6 +96,4 @@
     <div class="h-14">
         .
     </div>
-</div> --}}
-
-@livewire('admin.khusus-slide')
+</div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Intervention\Image\Laravel\Facades\Image;
 
 class DashboardController extends Controller
 {
@@ -14,6 +15,12 @@ class DashboardController extends Controller
     {
         return view('admin.pages');
     }
+    public function pagesComp($id)
+    {
+        return view('admin.pages-kompunen', [
+            
+        ]);
+    }
     public function tampilan()
     {
         return view('admin.tampilan');
@@ -22,10 +29,7 @@ class DashboardController extends Controller
     {
         return view('admin.setting');
     }
-    public function media()
-    {
-        return view('admin.media-galery');
-    }
+
     public function settingLayout()
     {
         return view('admin.tampilan_layout');
