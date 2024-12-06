@@ -21,7 +21,9 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth']], function () {
 
     Route::get('/', [App\Http\Controllers\DashboardController::class, 'index']);
     Route::get('/pages', [App\Http\Controllers\DashboardController::class, 'pages'])->name('pages');
-    Route::get('/pages/{id}', [App\Http\Controllers\DashboardController::class, 'pagesComp'])->name('pages.comp');
+    Route::get('/pages/component', [App\Http\Controllers\DashboardController::class, 'pagesComp'])->name('pagesComp');
+    Route::get('/pages/component/{id}', [App\Http\Controllers\DashboardController::class, 'compByid'])->name('compByid');
+    Route::get('/pages/{id}', [App\Http\Controllers\DashboardController::class, 'pageByid'])->name('pageByid');
     Route::get('/tampilan', [App\Http\Controllers\DashboardController::class, 'tampilan'])->name('tampilan');
     Route::get('/tampilan/layout', [App\Http\Controllers\DashboardController::class, 'settingLayout'])->name('tampilan.layout');
     Route::get('/setting', [App\Http\Controllers\DashboardController::class, 'setting'])->name('setting');

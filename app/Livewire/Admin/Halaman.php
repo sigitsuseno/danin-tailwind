@@ -8,6 +8,7 @@ use Livewire\Component;
 use Illuminate\Support\Str;
 use Livewire\Attributes\Rule;
 use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\Storage;
 
 class Halaman extends Component
 {
@@ -18,6 +19,8 @@ class Halaman extends Component
     $id_danin,
     $idnya,
     $link,
+
+    $gambar_baru,
     $kode,
     $informasi,
     $aktif,
@@ -41,7 +44,9 @@ class Halaman extends Component
 
     public $handle = 'list-page';
 
-    public $handle_sub = 'main';
+    public $handle_sub = '';
+
+    public $step = 'create';
     public function render()
     {
 
@@ -56,19 +61,20 @@ class Halaman extends Component
         $this->nama = '';
         $this->nama = '';
         $this->gambar = '';
-        $this->link = '';
+        $this->gambar_baru = '';
+        $this->link = 'http://';
         $this->kode = '';
         $this->informasi = '';
-        $this->aktif = '';
+        $this->aktif = false;
         $this->posisi = '';
         $this->danin_id = '';
         $this->idnya = '';
     }
-    public function menuOpen()
+    public function menuOpen($slug)
     {
         if ($this->handle_sub == 'main') {
-            $this->handle_sub = 'bukabu';
-        } elseif ($this->handle_sub == 'bukabu') {
+            $this->handle_sub = $slug;
+        } elseif ($this->handle_sub == $slug) {
             $this->handle_sub = 'main';
         }
     }
@@ -100,13 +106,13 @@ class Halaman extends Component
             'nama' => $this->nama,
             'slug' => Str::slug($this->nama),
             'gambar' => $this->gambar->hashName(),
-            'link' => $this->link,
+            'link' => $this->link != null ? $this->link : "",
             'kode' => $this->kode,
             'informasi' => $this->informasi,
-            'aktif' => $this->aktif,
+            'aktif' => false,
             'posisi' => $this->posisi,
-            'danin_id' => $this->danin_id ? $this->danin_id : '',
-            'idnya' => $this->idnya,
+            'danin_id' => $this->danin_id,
+            // 'idnya' => $this->idnya != null ? $this->idnya : "",
         ]);
     
         // Redirect or return a response
@@ -117,27 +123,53 @@ class Halaman extends Component
     public function edit($id)
     {
         $this->resetBt();
+        $this->step = 'edit';
+        $this->handle_sub = 'main';
+
         
         $danin = Danin::find($id);
 
         $this->id_danin = $danin->id;
         $this->nama = $danin->nama;
         $this->gambar = $danin->gambar;
-        $this->link = $danin->link;
+        $this->link = 'http://';
         $this->kode = $danin->kode;
         $this->informasi = $danin->informasi;
-        $this->aktif = $danin->aktif;
+        $this->aktif = false;
         $this->posisi = $danin->posisi;
         $this->danin_id = $danin->danin_id;
         $this->idnya = $danin->idnya;
 
-        $this->handle = 'edit';
     }
 
     
     public function update()
     {
-        //
+        // $this->validate();
+    
+        // Handle file upload
+        $hal_new = Danin::find($this->danin_id);
+        if ($this->gambar_baru) {
+            $this->gambar_baru->storeAs('image/', $this->gambar_baru->hashName());
+            Storage::delete('storage/image/'. $this->gambar_baru);
+
+        }
+
+        // Create the Danin record
+        $hal_new->update([
+            'nama' => $this->nama,
+            'slug' => Str::slug($this->nama),
+            'gambar' => $this->gambar_baru ? $this->gambar_baru : $this->gambar,
+            'link' => $this->link != null ? $this->link : "",
+            'kode' => $this->kode,
+            'informasi' => $this->informasi,
+            'aktif' => false,
+            'posisi' => $this->posisi,
+            'danin_id' => $this->danin_id,
+            // 'idnya' => $this->idnya != null ? $this->idnya : "",
+        ]);
+
+
     }
     
     public function delete()

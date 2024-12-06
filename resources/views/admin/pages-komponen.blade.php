@@ -4,7 +4,7 @@
 
     </x-slot>
     <x-slot name='theMenu'>
-        Buat Halaman
+        Komponen Halaman
     </x-slot>
 
     <div class="w-full">

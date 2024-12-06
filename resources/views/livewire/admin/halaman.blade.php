@@ -53,15 +53,34 @@
                 </div>
             </x-modale>
         @endif --}}
-        <form wire:submit.prevent='create'>
+
+
+        <form wire:submit.prevent='{{ $step == 'create' ? 'create' : 'update' }}'>
+
+
             <div class="mb-3">
                 <div class="flex flex-row items-center gap-4 ">
                     <div class="w-1/2 h-24 overflow-hidden border border-orange-900 border-dashed rounded-lg">
-                        @if ($gambar)
-                            <img src="{{ $gambar->temporaryUrl() }}" alt="" class="object-cover w-full h-full">
+                        @if ($step == 'create')
+                            @if ($gambar)
+                                <img src="{{ $gambar->temporaryUrl() }}" alt="" class="object-cover w-full h-full">
+                            @else
+                                <div class="flex items-center justify-center w-full h-full">
+                                    Preview Gambar
+                                </div>
+                            @endif
+                        @elseif ($step == 'edit')
+                            @if ($gambar_baru)
+                                <img src="{{ $gambar_baru->temporaryUrl() }}" alt=""
+                                    class="object-cover w-full h-full">
+                            @else
+                                <img src="{{ asset('storage/image/' . $gambar) }}" alt=""
+                                    class="object-cover w-full h-full">
+                            @endif
+
                         @endif
                     </div>
-                    <input wire:model='gambar' type="file" class="w-1/2">
+                    <input wire:model='{{ $step == 'edit' ? 'gambar_baru' : 'gambar' }}' type="file" class="w-1/2">
                 </div>
                 @error('gambar')
                     <span class="text-sm text-red-600">
@@ -83,7 +102,7 @@
                 <label for="select" class="w-full">Posisi :</label>
                 <select wire:model.live='posisi' id="select" class="px-4 py-2 border rounded-lg bg-orange-50 ">
 
-                    <option>Pilih</option>
+                    <option value="">Pilih</option>
                     @foreach ($posisis as $posi)
                         <option value="{{ $posi->value }}">{{ $posi->name }}</option>
                     @endforeach
@@ -96,24 +115,24 @@
                 @enderror
             </div>
 
-            @if ($posisi == 'sub')
-                <div class="flex flex-col mb-3">
-                    <label for="danin_id" class="w-full">Sub dari :</label>
-                    <select wire:model='danin_id' id="danin_id" class="px-4 py-2 border rounded-lg bg-orange-50 ">
+            <div class="flex flex-col mb-3">
+                <label for="danin_id" class="w-full">Sub dari :</label>
+                <select wire:model='danin_id' id="danin_id" class="px-4 py-2 border rounded-lg bg-orange-50 ">
 
-                        <option>Pilih</option>
+                    <option>Pilih</option>
+                    @if ($posisi == 'sub')
                         @foreach ($halamans as $hal)
                             <option value="{{ $hal->id }}">{{ $hal->nama }}</option>
                         @endforeach
+                    @endif
+                </select>
 
-                    </select>
-                    @error('posisi')
-                        <span class="text-sm text-red-600">
-                            {{ $message }}
-                        </span>
-                    @enderror
-                </div>
-            @endif
+                @error('posisi')
+                    <span class="text-sm text-red-600">
+                        {{ $message }}
+                    </span>
+                @enderror
+            </div>
 
             <div class="flex flex-col mb-3">
                 <label for="kode" class="w-full">Kode HTML :</label>
@@ -136,7 +155,10 @@
                 @enderror
             </div>
             <div class="text-end">
-                <button class="px-4 py-2 bg-orange-600 rounded-lg">Simpan</button>
+
+                <button
+                    class="px-4 py-2 bg-orange-600 rounded-lg">{{ $step == 'create' ? 'Buat' : 'Simpan Edit' }}</button>
+
             </div>
         </form>
     </div>
@@ -165,10 +187,11 @@
                 </div>
 
                 @forelse ($halamans as $hal)
-                    <div class="flex flex-row items-center justify-between w-full gap-4 p-2 border-b">
+                    <div class="relative flex flex-row items-center justify-between w-full gap-4 p-2 border-b ">
                         <div class="w-3/12">
-                            <div class="w-full h-full overflow-hidden">
-                                <img src="{{ asset('storage/image/' . $hal->gambar) }}" alt="">
+                            <div class="w-full overflow-hidden h-[50px]">
+                                <img src="{{ asset('storage/image/' . $hal->gambar) }}" alt=""
+                                    class="object-cover w-full h-full">
                             </div>
                         </div>
                         <div class="w-4/12">
@@ -177,26 +200,27 @@
                         <div class="w-3/12">
                             {{ $hal->posisi }}
                         </div>
-                        <div class="relative w-2/12">
-
-                            <button wire:click='menuOpen()' class="px-2 py-1 text-white bg-orange-700 rounded-lg ">
+                        <div x-data="{ open: false }" class="w-2/12 ">
+                            <button x-on:click="open = ! open"
+                                class="px-2 py-1 text-white bg-orange-700 rounded-lg tombol_">
                                 Menu
                             </button>
 
-                            @if ($handle_sub == 'bukabu')
-                                <div class="absolute top-[110%] right-0 flex flex-col gap-1">
-                                    <button class="px-2 py-1 text-white bg-orange-500 rounded-lg ">
-                                        Edit
-                                    </button>
-                                    <a href="{{ url('dashboard/pages/' . $hal->id) }}"
-                                        class="px-2 py-1 text-white bg-orange-500 rounded-lg ">
-                                        Komponen
-                                    </a>
-                                    <button wire:click='delete' class="px-2 py-1 text-white bg-orange-500 rounded-lg ">
-                                        Hapus
-                                    </button>
-                                </div>
-                            @endif
+                            <div x-bind:class="!open ? 'tampil_tombol ' : 'tampil_tombol show'">
+                                <button wire:click.stop='edit({{ $hal->id }})'
+                                    class="w-full px-2 py-1 text-white bg-orange-500 rounded-lg ">
+                                    Edit
+                                </button>
+                                <a href="{{ url('dashboard/pages/component/' . $hal->id) }}"
+                                    class="block w-full px-2 py-1 text-white bg-orange-500 rounded-lg ">
+                                    Komponen
+                                </a>
+                                <button wire:click='delete'
+                                    class="w-full px-2 py-1 text-white bg-orange-500 rounded-lg ">
+                                    Hapus
+                                </button>
+                            </div>
+
 
                         </div>
                     </div>
@@ -245,16 +269,18 @@
                         </div>
                         <div class="relative w-2/12">
 
-                            <button wire:click='menuOpen()' class="px-2 py-1 text-white bg-orange-700 rounded-lg ">
+                            <button wire:click='menuOpen({{ $sub->slug }})'
+                                class="px-2 py-1 text-white bg-orange-700 rounded-lg ">
                                 Menu
                             </button>
 
-                            @if ($handle_sub == 'bukabu')
+                            @if ($handle_sub == '{{ $sub->slug }}')
                                 <div class="absolute top-[110%] right-0 flex flex-col gap-1">
-                                    <button class="px-2 py-1 text-white bg-orange-500 rounded-lg ">
+                                    <button wire:click.stop='edit({{ $sub->id }})'
+                                        class="px-2 py-1 text-white bg-orange-500 rounded-lg ">
                                         Edit
                                     </button>
-                                    <a href="{{ url('dashboard/pages/' . $sub->id) }}"
+                                    <a href="{{ url('dashboard/pages/component/' . $sub->id) }}"
                                         class="px-2 py-1 text-white bg-orange-500 rounded-lg ">
                                         Komponen
                                     </a>
@@ -280,8 +306,5 @@
 
             </div>
         @endif
-
-
-
     </div>
 </div>

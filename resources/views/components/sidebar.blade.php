@@ -15,17 +15,18 @@
         </button>
         <div class="menu_wrapper mlebu">
             <ul>
-                <li class="sidebar_menu {{ request()->routeIs('pages') ? 'active' : '' }}">
+                <li class="sidebar_menu {{ request()->routeIs('pages', 'pagesComp') ? 'active' : '' }}">
                     <a href="#" class="sidebar_link">
                         <div class="link_ic">
                             <i class="fa-regular fa-newspaper"></i>
                         </div>
                         <span>Pages</span>
                     </a>
-                    <ul class="sub_menu {{ request()->routeIs('pages', 'pages.create') ? 'ada_sub' : '' }}">
+
+                    <ul class="sub_menu {{ request()->routeIs('pages', 'pagesComp') ? 'ada_sub' : '' }}">
                         <li class="sidebar_menu active">
                             <a href="{{ route('pages') }}"
-                                class="sidebar_link {{ request()->routeIs('pages', 'pages.create') ? 'active' : '' }}">
+                                class="sidebar_link {{ request()->routeIs('pages') ? 'active' : '' }}">
                                 <div class="link_ic">
                                     <i class="fa-solid fa-caret-right"></i>
                                 </div>
@@ -33,7 +34,8 @@
                             </a>
                         </li>
                         <li class="sidebar_menu">
-                            <a href="#" class="sidebar_link">
+                            <a href="{{ route('pagesComp') }}"
+                                class="sidebar_link {{ request()->routeIs('pagesComp') ? 'active' : '' }}">
                                 <div class="link_ic">
                                     <i class="fa-solid fa-caret-right"></i>
                                 </div>

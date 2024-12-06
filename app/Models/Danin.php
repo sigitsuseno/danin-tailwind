@@ -20,7 +20,7 @@ class Danin extends Model
         'idnya',
     ];
 
-    public function casts()
+    protected function casts()
     {
         return [
             'posisi' => Posisi::class
@@ -30,5 +30,15 @@ class Danin extends Model
     public function images()
     {
         return $this->hasMany(ImageGalery::class, 'image_id');
+    }
+
+    public function daninUtama()
+    {
+        return $this->whereNull('danin_id');
+    }
+
+    public function daninSubs()
+    {
+        return $this->hasMany(Danin::class, 'danin_id');
     }
 }
