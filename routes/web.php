@@ -13,14 +13,13 @@ Route::get('/login', [SessionController::class, 'create'])->middleware('guest')-
 Route::post('/login', [SessionController::class, 'store'])->middleware('guest');
 Route::post('/logout', [SessionController::class, 'destroy'])->middleware('auth');
 
-Route::get('/', [App\Http\Controllers\FrontWebController::class, 'beranda'])->name('beranda');
-Route::get('/slide-depan', [App\Http\Controllers\FrontWebController::class, 'slideDepan'])->name('depan');
+
 
 
 Route::group(['prefix' => 'dashboard', 'middleware' => ['auth']], function () {
 
     Route::get('/', [App\Http\Controllers\DashboardController::class, 'index']);
-    Route::get('/pages', [App\Http\Controllers\DashboardController::class, 'pages'])->name('pages');
+    Route::get('/pages', [App\Http\Controllers\DashboardController::class, 'pages'])->name('halamaan');
     Route::get('/pages/component', [App\Http\Controllers\DashboardController::class, 'pagesComp'])->name('pagesComp');
     Route::get('/pages/component/{id}', [App\Http\Controllers\DashboardController::class, 'compByid'])->name('compByid');
     Route::get('/pages/{id}', [App\Http\Controllers\DashboardController::class, 'pageByid'])->name('pageByid');
@@ -32,3 +31,10 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth']], function () {
     Route::delete('/media/{id}', [App\Http\Controllers\ImgController::class, 'destroy'])->name('media.destroy');
 
 });
+
+Route::get('/slide-depan', [App\Http\Controllers\FrontWebController::class, 'slideDepan'])->name('depan');
+Route::get('/', [App\Http\Controllers\FrontWebController::class, 'beranda'])->name('beranda');
+Route::get('/pages', [App\Http\Controllers\FrontWebController::class, 'pages'])->name('pages');
+Route::get('/pages/{slug}', [App\Http\Controllers\FrontWebController::class, 'page'])->name('page');
+Route::get('/produks', [App\Http\Controllers\FrontWebController::class, 'produks'])->name('produks');
+Route::get('/produks/{slug}', [App\Http\Controllers\FrontWebController::class, 'produk'])->name('produk');

@@ -15,7 +15,7 @@
         </button>
         <div class="menu_wrapper mlebu">
             <ul>
-                <li class="sidebar_menu {{ request()->routeIs('pages', 'pagesComp') ? 'active' : '' }}">
+                <li class="sidebar_menu {{ request()->routeIs('halamaan', 'pagesComp') ? 'active' : '' }}">
                     <a href="#" class="sidebar_link">
                         <div class="link_ic">
                             <i class="fa-regular fa-newspaper"></i>
@@ -23,10 +23,10 @@
                         <span>Pages</span>
                     </a>
 
-                    <ul class="sub_menu {{ request()->routeIs('pages', 'pagesComp') ? 'ada_sub' : '' }}">
+                    <ul class="sub_menu {{ request()->routeIs('halamaan', 'pagesComp') ? 'ada_sub' : '' }}">
                         <li class="sidebar_menu active">
-                            <a href="{{ route('pages') }}"
-                                class="sidebar_link {{ request()->routeIs('pages') ? 'active' : '' }}">
+                            <a href="{{ route('halamaan') }}"
+                                class="sidebar_link {{ request()->routeIs('halamaan') ? 'active' : '' }}">
                                 <div class="link_ic">
                                     <i class="fa-solid fa-caret-right"></i>
                                 </div>
@@ -63,25 +63,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class="sidebar_menu {{ request()->routeIs('tampilan') ? 'active' : '' }}">
-                    <a href="#" class="sidebar_link ">
-                        <div class="link_ic">
-                            <i class="fa-regular fa-newspaper"></i>
-                        </div>
-                        <span>Layout</span>
-                    </a>
-                    <ul class="sub_menu {{ request()->routeIs('tampilan') ? 'ada_sub' : '' }}">
-                        <li class="sidebar_menu">
-                            <a href="/dashboard/tampilan"
-                                class="sidebar_link {{ request()->routeIs('tampilan') ? 'active' : '' }}">
-                                <div class="link_ic">
-                                    <i class="fa-solid fa-caret-right"></i>
-                                </div>
-                                <span>Halaman 4</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+
             </ul>
         </div>
     </div>

@@ -5,6 +5,7 @@
 :root {
     --text-primary: #bb7422;
     --text-dark: #422503;
+    --lide-1: #db8f38;
 }
 
 @media (max-width: 767.99px) {
@@ -94,7 +95,7 @@
             font-family: "Alex Brush", cursive;
             span {
                 padding: 0.2rem 1rem 0.1rem 1rem;
-                border: 2px solid var(--text-dark);
+                border: 2px solid var(--lide-1);
                 color: var(--text-dark);
                 border-radius: 20px;
                 font-weight: 600;
@@ -196,7 +197,7 @@
             font-family: "Alex Brush", cursive;
             span {
                 padding: 0.2rem 1rem 0.1rem 1rem;
-                border: 2px solid var(--text-dark);
+                border: 2px solid var(--lide-1);
                 color: var(--text-dark);
                 border-radius: 20px;
                 font-weight: 600;

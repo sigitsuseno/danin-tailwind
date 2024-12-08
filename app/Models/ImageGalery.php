@@ -13,6 +13,7 @@ class ImageGalery extends Model
         'slug',
         'image',
         'image_thumb',
+        'link',
         'image_id',
     ];
 

@@ -10,22 +10,22 @@
                 <div class="flex items-center justify-center gap-3">
                     <a href="https://wa.me/6282225403629"
                         class="w-8 h-8 p-1 overflow-hidden transition duration-500 hover:bg-white hover:rounded-lg">
-                        <img src="asset/img/whatsapp-svgrepo-com.svg" alt=""
+                        <img src="/asset/img/whatsapp-svgrepo-com.svg" alt=""
                             class="object-contain w-full h-full">
                     </a>
                     <a href="https://www.instagram.com/piesusudanin/"
                         class="w-8 h-8 p-1 overflow-hidden transition duration-500 hover:bg-white hover:rounded-lg">
-                        <img src="asset/img/instagram-svgrepo-com.svg" alt=""
+                        <img src="/asset/img/instagram-svgrepo-com.svg" alt=""
                             class="object-contain w-full h-full">
                     </a>
                     <a href="https://www.facebook.com/piesusu.darin"
                         class="w-8 h-8 p-1 overflow-hidden transition duration-500 hover:bg-white hover:rounded-lg">
-                        <img src="asset/img/facebook-svgrepo-com.svg" alt=""
+                        <img src="/asset/img/facebook-svgrepo-com.svg" alt=""
                             class="object-contain w-full h-full">
                     </a>
                     <a href="https://www.youtube.com/watch?v=oIEm8bJP0LE"
                         class="w-8 h-8 p-1 overflow-hidden transition duration-500 hover:bg-white hover:rounded-lg">
-                        <img src="asset/img/youtube-svgrepo-com.svg" alt=""
+                        <img src="/asset/img/youtube-svgrepo-com.svg" alt=""
                             class="object-contain w-full h-full">
                     </a>
                 </div>

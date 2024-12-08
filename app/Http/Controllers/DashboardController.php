@@ -15,11 +15,11 @@ class DashboardController extends Controller
     }
     public function pages()
     {
-        return view('admin.pages');
+        return view('admin.pages.pages');
     }
     public function pagesComp()
     {
-        return view('admin.pages-komponen', [
+        return view('admin.pages.pages-komponen', [
             'pageComp' => Danin::orderBy('id', 'desc')->get(),
 
         ]);
@@ -27,12 +27,12 @@ class DashboardController extends Controller
     public function pageByid($id)
     {
 
-        return view('admin.pages');
+        return view('admin.pages.pages');
     }
     public function compByid($id)
     {
-        return view('admin.pages-komponen_id', [
-            'dari_danin' => Danin::where('id', $id)->first(),
+        return view('admin.pages.pages-komponen_id', [
+            'dari_danin' => Danin::with('images')->where('id', $id)->first(),
 
         ]);
     }

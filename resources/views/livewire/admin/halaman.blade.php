@@ -61,6 +61,7 @@
             <div class="mb-3">
                 <div class="flex flex-row items-center gap-4 ">
                     <div class="w-1/2 h-24 overflow-hidden border border-orange-900 border-dashed rounded-lg">
+
                         @if ($step == 'create')
                             @if ($gambar)
                                 <img src="{{ $gambar->temporaryUrl() }}" alt="" class="object-cover w-full h-full">
@@ -69,18 +70,27 @@
                                     Preview Gambar
                                 </div>
                             @endif
-                        @elseif ($step == 'edit')
-                            @if ($gambar_baru)
-                                <img src="{{ $gambar_baru->temporaryUrl() }}" alt=""
-                                    class="object-cover w-full h-full">
+                        @else
+                            @if ($gambar_lama)
+                                @if ($gambar_baru)
+                                    <img src="{{ $gambar_baru->temporaryUrl() }}" alt=""
+                                        class="object-cover w-full h-full">
+                                @else
+                                    <img src="{{ asset('storage/image/' . $gambar_lama) }}" alt=""
+                                        class="object-cover w-full h-full">
+                                @endif
                             @else
-                                <img src="{{ asset('storage/image/' . $gambar) }}" alt=""
-                                    class="object-cover w-full h-full">
+                                <div class="flex items-center justify-center w-full h-full">
+                                    Preview Gambar
+                                </div>
                             @endif
-
                         @endif
+
+
+
                     </div>
-                    <input wire:model='{{ $step == 'edit' ? 'gambar_baru' : 'gambar' }}' type="file" class="w-1/2">
+                    <input wire:model='{{ $step == 'create' ? 'gambar' : 'gambar_baru' }}' type="file"
+                        class="w-1/2">
                 </div>
                 @error('gambar')
                     <span class="text-sm text-red-600">
@@ -135,16 +145,6 @@
             </div>
 
             <div class="flex flex-col mb-3">
-                <label for="kode" class="w-full">Kode HTML :</label>
-                <textarea wire:model='kode' rows="4" type="text" id="kode"
-                    class="px-4 py-1.5 rounded-lg bg-orange-50 border "></textarea>
-                @error('kode')
-                    <span>
-                        {{ $message }}
-                    </span>
-                @enderror
-            </div>
-            <div class="flex flex-col mb-3">
                 <label for="informasi" class="w-full">Konten :</label>
                 <textarea wire:model='informasi' rows="4" type="text" id="informasi"
                     class="px-4 py-1.5 rounded-lg bg-orange-50 border "></textarea>
@@ -154,6 +154,18 @@
                     </span>
                 @enderror
             </div>
+
+            <div class="flex flex-col mb-3">
+                <label for="kode" class="w-full">Kode HTML :</label>
+                <textarea wire:model='kode' rows="4" type="text" id="kode"
+                    class="px-4 py-1.5 rounded-lg bg-orange-50 border "></textarea>
+                @error('kode')
+                    <span>
+                        {{ $message }}
+                    </span>
+                @enderror
+            </div>
+
             <div class="text-end">
 
                 <button
@@ -164,41 +176,78 @@
     </div>
     <div class="w-full p-3 bg-white rounded-lg shadow-md md:w-1/2">
         <div class="flex flex-row gap-4 pb-4 mb-3 font-bold border-b border-orange-950">
-            <h2 wire:click='handleButton("list-page")' class="text-lg cursor-pointer">List Page</h2>
-            <h2 wire:click='handleButton("list-sub")' class="text-lg cursor-pointer">List Sub</h2>
+            <h2 class="text-lg cursor-pointer">List Page</h2>
+
         </div>
 
-        @if ($handle == 'list-page')
-            <div class="w-full h-full">
-                <div
-                    class="flex flex-row items-center justify-between w-full gap-4 px-2 py-1 bg-orange-100 border border-b-orange-950">
+        <div class="w-full h-full">
+            <div
+                class="flex flex-row items-center justify-between w-full gap-4 px-2 py-1 bg-orange-100 border border-b-orange-950">
+                <div class="w-3/12">
+                    Gambar
+                </div>
+                <div class="w-4/12">
+                    Nama Halaman
+                </div>
+                <div class="w-3/12">
+                    Bag.
+                </div>
+                <div class="w-2/12">
+                    Handle
+                </div>
+            </div>
+
+            @forelse ($halamans as $hal)
+                <div class="relative flex flex-row items-center justify-between w-full gap-4 p-2 border-b ">
                     <div class="w-3/12">
-                        Gambar
+                        <div class="w-full overflow-hidden h-[50px]">
+                            <img src="{{ asset('storage/image/' . $hal->gambar) }}" alt=""
+                                class="object-cover w-full h-full">
+                        </div>
                     </div>
                     <div class="w-4/12">
-                        Nama Halaman
+                        {{ $hal->nama }}
                     </div>
                     <div class="w-3/12">
-                        test
+                        {{ $hal->posisi }}
                     </div>
-                    <div class="w-2/12">
-                        test
+                    <div x-data="{ open: false }" class="w-2/12 ">
+                        <button x-on:click="open = ! open"
+                            class="px-2 py-1 text-white bg-orange-700 rounded-lg tombol_">
+                            Menu
+                        </button>
+
+                        <div x-bind:class="!open ? 'tampil_tombol ' : 'tampil_tombol show'">
+                            <button wire:click.stop='edit({{ $hal->id }})'
+                                class="w-full px-2 py-1 text-white bg-orange-500 rounded-lg ">
+                                Edit
+                            </button>
+                            <a href="{{ url('dashboard/pages/component/' . $hal->id) }}"
+                                class="block w-full px-2 py-1 text-white bg-orange-500 rounded-lg ">
+                                Komponen
+                            </a>
+                            <button wire:click='delete' class="w-full px-2 py-1 text-white bg-orange-500 rounded-lg ">
+                                Hapus
+                            </button>
+                        </div>
+
+
                     </div>
                 </div>
 
-                @forelse ($halamans as $hal)
-                    <div class="relative flex flex-row items-center justify-between w-full gap-4 p-2 border-b ">
+                @foreach ($hal->daninSubs as $sub)
+                    <div class="relative flex flex-row items-center justify-between w-full gap-4 p-2 pl-4 bg-orange-50">
                         <div class="w-3/12">
                             <div class="w-full overflow-hidden h-[50px]">
-                                <img src="{{ asset('storage/image/' . $hal->gambar) }}" alt=""
+                                <img src="{{ asset('storage/image/' . $sub->gambar) }}" alt=""
                                     class="object-cover w-full h-full">
                             </div>
                         </div>
                         <div class="w-4/12">
-                            {{ $hal->nama }}
+                            {{ $sub->nama }}
                         </div>
                         <div class="w-3/12">
-                            {{ $hal->posisi }}
+                            {{ $sub->posisi }}
                         </div>
                         <div x-data="{ open: false }" class="w-2/12 ">
                             <button x-on:click="open = ! open"
@@ -207,11 +256,11 @@
                             </button>
 
                             <div x-bind:class="!open ? 'tampil_tombol ' : 'tampil_tombol show'">
-                                <button wire:click.stop='edit({{ $hal->id }})'
+                                <button wire:click.stop='edit({{ $sub->id }})'
                                     class="w-full px-2 py-1 text-white bg-orange-500 rounded-lg ">
                                     Edit
                                 </button>
-                                <a href="{{ url('dashboard/pages/component/' . $hal->id) }}"
+                                <a href="{{ url('dashboard/pages/component/' . $sub->id) }}"
                                     class="block w-full px-2 py-1 text-white bg-orange-500 rounded-lg ">
                                     Komponen
                                 </a>
@@ -224,87 +273,18 @@
 
                         </div>
                     </div>
+                @endforeach
+            @empty
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                    <th colspan="4" scope="row"
+                        class="px-6 py-4 font-medium text-center text-gray-900 whitespace-nowrap dark:text-white">
+                        Belum ada data
+                    </th>
 
-                @empty
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <th colspan="4" scope="row"
-                            class="px-6 py-4 font-medium text-center text-gray-900 whitespace-nowrap dark:text-white">
-                            Belum ada data
-                        </th>
+                </tr>
+            @endforelse
 
-                    </tr>
-                @endforelse
+        </div>
 
-            </div>
-        @elseif ($handle == 'list-sub')
-            <div class="w-full h-full">
-                <div
-                    class="flex flex-row items-center justify-between w-full gap-4 px-2 py-1 bg-orange-100 border border-b-orange-950">
-                    <div class="w-3/12">
-                        Gambar
-                    </div>
-                    <div class="w-4/12">
-                        Nama Halaman
-                    </div>
-                    <div class="w-3/12">
-                        test
-                    </div>
-                    <div class="w-2/12">
-                        test
-                    </div>
-                </div>
-
-                @forelse ($hal_sub as $sub)
-                    <div class="flex flex-row items-center justify-between w-full gap-4 p-2 border-b">
-                        <div class="w-3/12">
-                            <div class="w-full h-full overflow-hidden">
-                                <img src="{{ asset('storage/image/' . $sub->gambar) }}" alt="">
-                            </div>
-                        </div>
-                        <div class="w-4/12">
-                            {{ $sub->nama }}
-                        </div>
-                        <div class="w-3/12">
-                            {{ $sub->posisi }}
-                        </div>
-                        <div class="relative w-2/12">
-
-                            <button wire:click='menuOpen({{ $sub->slug }})'
-                                class="px-2 py-1 text-white bg-orange-700 rounded-lg ">
-                                Menu
-                            </button>
-
-                            @if ($handle_sub == '{{ $sub->slug }}')
-                                <div class="absolute top-[110%] right-0 flex flex-col gap-1">
-                                    <button wire:click.stop='edit({{ $sub->id }})'
-                                        class="px-2 py-1 text-white bg-orange-500 rounded-lg ">
-                                        Edit
-                                    </button>
-                                    <a href="{{ url('dashboard/pages/component/' . $sub->id) }}"
-                                        class="px-2 py-1 text-white bg-orange-500 rounded-lg ">
-                                        Komponen
-                                    </a>
-                                    <button wire:click='delete'
-                                        class="px-2 py-1 text-white bg-orange-500 rounded-lg ">
-                                        Hapus
-                                    </button>
-                                </div>
-                            @endif
-
-                        </div>
-                    </div>
-
-                @empty
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <th colspan="4" scope="row"
-                            class="px-6 py-4 font-medium text-center text-gray-900 whitespace-nowrap dark:text-white">
-                            Belum ada data
-                        </th>
-
-                    </tr>
-                @endforelse
-
-            </div>
-        @endif
     </div>
 </div>

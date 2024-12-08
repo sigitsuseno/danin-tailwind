@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 use Livewire\Attributes\Rule;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\UploadedFile;
 
 class Halaman extends Component
 {
@@ -19,8 +20,6 @@ class Halaman extends Component
     $id_danin,
     $idnya,
     $link,
-
-    $gambar_baru,
     $kode,
     $informasi,
     $aktif,
@@ -31,6 +30,10 @@ class Halaman extends Component
     #[Rule('image', message: 'File Harus Gambar')]
     #[Rule('max:2048', message: 'Ukuran File Maksimal 2MB')]
     public $gambar;
+
+
+    public $gambar_lama;
+    public $gambar_baru;
 
     //title
     #[Rule('required', message: 'Masukkan nama halaman')]
@@ -51,8 +54,7 @@ class Halaman extends Component
     {
 
         return view('livewire.admin.halaman', [
-            'halamans' => Danin::whereNull('danin_id')->orderBy('id', 'desc')->get(),
-            'hal_sub' => Danin::where('posisi', 'sub')->orderBy('id', 'desc')->get(),
+            'halamans' => Danin::whereNull('danin_id')->with('daninSubs')->orderBy('id', 'ASC')->get(),
         ]);
     }
 
@@ -61,7 +63,7 @@ class Halaman extends Component
         $this->nama = '';
         $this->nama = '';
         $this->gambar = '';
-        $this->gambar_baru = '';
+        $this->gambar_lama = '';
         $this->link = 'http://';
         $this->kode = '';
         $this->informasi = '';
@@ -131,7 +133,8 @@ class Halaman extends Component
 
         $this->id_danin = $danin->id;
         $this->nama = $danin->nama;
-        $this->gambar = $danin->gambar;
+        $this->gambar_baru = '';
+        $this->gambar_lama = $danin->gambar;
         $this->link = 'http://';
         $this->kode = $danin->kode;
         $this->informasi = $danin->informasi;
@@ -147,19 +150,26 @@ class Halaman extends Component
     {
         // $this->validate();
     
+
         // Handle file upload
-        $hal_new = Danin::find($this->danin_id);
+        $hal_new = Danin::find($this->id_danin);
+
+        
         if ($this->gambar_baru) {
+
+            
             $this->gambar_baru->storeAs('image/', $this->gambar_baru->hashName());
-            Storage::delete('storage/image/'. $this->gambar_baru);
+            
+            Storage::delete('storage/image/'. $hal_new->image);
 
         }
 
         // Create the Danin record
+
         $hal_new->update([
             'nama' => $this->nama,
             'slug' => Str::slug($this->nama),
-            'gambar' => $this->gambar_baru ? $this->gambar_baru : $this->gambar,
+            'gambar' => $this->gambar_baru ? $this->gambar_baru->hashName() : $this->gambar_lama,
             'link' => $this->link != null ? $this->link : "",
             'kode' => $this->kode,
             'informasi' => $this->informasi,
@@ -169,7 +179,8 @@ class Halaman extends Component
             // 'idnya' => $this->idnya != null ? $this->idnya : "",
         ]);
 
-
+        $this->resetBt();
+        return redirect()->route('pages')->with('success', 'Danin berhasil di update.');
     }
     
     public function delete()

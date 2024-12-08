@@ -15,7 +15,7 @@ class ImgController extends Controller
 {
     public function index()
     {
-        return view('admin.media-galery', [
+        return view('admin.pages.media-galery', [
             'gambar' => ImageGalery::orderBy('id', 'desc')->with('danin')->get()
         ]);
     }
