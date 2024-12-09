@@ -7,6 +7,6 @@
 
         </x-slot>
 
-        @livewire('admin.pengaturan')
+        @livewire('admin.user-manager')
     </div>
 </x-layout-main>

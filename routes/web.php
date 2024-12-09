@@ -26,6 +26,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth']], function () {
     Route::get('/tampilan', [App\Http\Controllers\DashboardController::class, 'tampilan'])->name('tampilan');
     Route::get('/tampilan/layout', [App\Http\Controllers\DashboardController::class, 'settingLayout'])->name('tampilan.layout');
     Route::get('/setting', [App\Http\Controllers\DashboardController::class, 'setting'])->name('setting');
+    Route::get('/user-manager', [App\Http\Controllers\DashboardController::class, 'userMan'])->name('userMan');
     Route::get('/media', [App\Http\Controllers\ImgController::class, 'index'])->name('media');
     Route::post('/media', [App\Http\Controllers\ImgController::class, 'store'])->name('media.upload');
     Route::delete('/media/{id}', [App\Http\Controllers\ImgController::class, 'destroy'])->name('media.destroy');
@@ -38,3 +39,5 @@ Route::get('/pages', [App\Http\Controllers\FrontWebController::class, 'pages'])-
 Route::get('/pages/{slug}', [App\Http\Controllers\FrontWebController::class, 'page'])->name('page');
 Route::get('/produks', [App\Http\Controllers\FrontWebController::class, 'produks'])->name('produks');
 Route::get('/produks/{slug}', [App\Http\Controllers\FrontWebController::class, 'produk'])->name('produk');
+Route::get('/events', [App\Http\Controllers\FrontWebController::class, 'beritas'])->name('beritas');
+Route::get('/events/{slug}', [App\Http\Controllers\FrontWebController::class, 'berita'])->name('berita');

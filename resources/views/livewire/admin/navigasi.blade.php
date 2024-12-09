@@ -37,8 +37,8 @@
                     </a>
                 </li>
                 <li class="flex items-center h-14">
-                    <a href="{{ url('pages/' . ($navis[4] ? $navis[4]->slug : '')) }}"
-                        class="px-3 py-2 hover:bg-[brown] transition duration-500 rounded-lg block w-full hover:text-white">{{ $navis[4] ? $navis[4]->nama : 'Jajanan' }}
+                    <a href="{{ url('/events') }}"
+                        class="px-3 py-2 hover:bg-[brown] transition duration-500 rounded-lg block w-full hover:text-white">{{ $navis[4] ? $navis[4]->nama : 'Event' }}
                     </a>
                 </li>
                 <li class="flex items-center h-14">
@@ -46,7 +46,7 @@
                         class="px-3 py-2 hover:bg-[brown] transition duration-500 rounded-lg block w-full hover:text-white">{{ $navis[5]
                             ? $navis[5]->nama
                             : 'Danin
-                                                                                                                                                                                                                                                                                                Store' }}
+                                                                                                                                                                                                                                                                                                                                                                        Store' }}
                     </a>
                 </li>
                 <li class="flex items-center h-14">
@@ -54,7 +54,7 @@
                         class="px-3 py-2 hover:bg-[brown] transition duration-500 rounded-lg block w-full hover:text-white">{{ $navis[6]
                             ? $navis[6]->nama
                             : 'Toko
-                                                                                                                                                                                                                                                                                                Rekanan' }}
+                                                                                                                                                                                                                                                                                                                                                                        Rekanan' }}
                     </a>
                 </li>
 

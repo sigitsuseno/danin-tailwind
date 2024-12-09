@@ -1,3 +1,3 @@
-<div>
-    {{-- Care about people's approval and you will be their prisoner. --}}
+<div class="container px-2 py-3 mx-auto md:px-0">
+    Daftar berita
 </div>

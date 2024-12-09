@@ -21,10 +21,12 @@ class Halaman extends Component
     $idnya,
     $link,
     $kode,
-    $informasi,
+
     $aktif,
     $danin_id,
     $posisis;
+
+    public $informasi = "";
 
     #[Rule('required', message: 'Masukkan Gambar')]
     #[Rule('image', message: 'File Harus Gambar')]
@@ -119,7 +121,7 @@ class Halaman extends Component
     
         // Redirect or return a response
         $this->resetBt();
-        return redirect()->route('pages')->with('success', 'Danin berhasil ditambahkan.');
+        return redirect()->route('halamaan')->with('success', 'Danin berhasil ditambahkan.');
     }
 
     public function edit($id)
@@ -180,13 +182,19 @@ class Halaman extends Component
         ]);
 
         $this->resetBt();
-        return redirect()->route('pages')->with('success', 'Danin berhasil di update.');
+        return redirect()->route('halamaan')->with('success', 'Danin berhasil di update.');
     }
     
-    public function delete()
+    public function delete($id)
     {
-        //
+        // Find the Danin record
+        $danin = Danin::find($id);
+    
+        $danin->delete();
+
+    
     }
+    
 
 
 

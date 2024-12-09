@@ -23,15 +23,25 @@ class FrontWebController extends Controller
     }
     public function page($slug)
     {
-        return view('livewire.website.page-single');
+        return view('frontweb.page-single', [
+            'single' => Danin::where('slug', $slug)->first()
+        ]);
     }
 
     public function produks()
     {
-        return view('livewire.website.produk-daftar');
+        return view('frontweb.produk-daftar');
     }
-    public function produk()
+    public function produk($slug)
     {
-        return view('livewire.website.produk-single');
+        return view('frontweb.produk-single');
+    }
+    public function beritas()
+    {
+        return view('frontweb.berita');
+    }
+    public function berita($slug)
+    {
+        return view('frontweb.berita-single');
     }
 }

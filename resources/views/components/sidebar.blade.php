@@ -18,7 +18,7 @@
                 <li class="sidebar_menu {{ request()->routeIs('halamaan', 'pagesComp') ? 'active' : '' }}">
                     <a href="#" class="sidebar_link">
                         <div class="link_ic">
-                            <i class="fa-regular fa-newspaper"></i>
+                            <i class="fa-regular fa-file-lines"></i>
                         </div>
                         <span>Pages</span>
                     </a>
@@ -47,7 +47,7 @@
                 <li class="sidebar_menu {{ request()->routeIs('media') ? 'active' : '' }}">
                     <a href="#" class="sidebar_link ">
                         <div class="link_ic">
-                            <i class="fa-regular fa-newspaper"></i>
+                            <i class="fa-solid fa-photo-film"></i>
                         </div>
                         <span>Media</span>
                     </a>
@@ -62,6 +62,22 @@
                             </a>
                         </li>
                     </ul>
+                </li>
+                <li class="sidebar_menu {{ request()->routeIs('userMan') ? 'active' : '' }}">
+                    <a href="{{ route('userMan') }}" class="sidebar_link ">
+                        <div class="link_ic">
+                            <i class="fa-solid fa-gear"></i>
+                        </div>
+                        <span>User Manager</span>
+                    </a>
+                </li>
+                <li class="sidebar_menu {{ request()->routeIs('setting') ? 'active' : '' }}">
+                    <a href="{{ route('setting') }}" class="sidebar_link ">
+                        <div class="link_ic">
+                            <i class="fa-solid fa-gear"></i>
+                        </div>
+                        <span>Setting</span>
+                    </a>
                 </li>
 
             </ul>

@@ -21,7 +21,7 @@
                 <div class="w-full h-[200px] md:h-full overflow-hidden rounded-xl relative shadow-md mt-3 md:mt-0">
                     <img src="{{ asset('storage/image/' . ($beranda[3] ? $beranda[3]->gambar : 'default.png')) }}"
                         alt="" class="object-cover w-full h-full">
-                    <a href="{{ url('/pages/daftar-produk') }}"
+                    <a href="{{ url('/produks') }}"
                         class="absolute top-0 left-0 p-3 text-xl text-white bg-opacity-50 rounded-br-xl lg:text-4xl lg:pb-5 bg-amber-400">
                         {{ $beranda[3] ? $beranda[3]->nama : 'Produk' }}
                     </a>
@@ -29,9 +29,9 @@
                 <div class="w-full h-[200px] md:h-full overflow-hidden rounded-xl relative shadow-md">
                     <img src="{{ asset('storage/image/' . ($beranda[4] ? $beranda[4]->gambar : 'default.png')) }}"
                         alt="" class="object-cover w-full h-full">
-                    <a href="{{ url('pages/' . ($beranda[4] ? $beranda[4]->slug : '')) }}"
+                    <a href="{{ url('/acara') }}"
                         class="absolute top-0 left-0 p-3 text-xl text-white bg-opacity-50 rounded-br-xl lg:text-4xl lg:pb-5 bg-amber-400">
-                        {{ $beranda[4] ? $beranda[4]->nama : 'Jajanan' }}
+                        {{ $beranda[4] ? $beranda[4]->nama : 'Acara' }}
                     </a>
                 </div>
             </div>

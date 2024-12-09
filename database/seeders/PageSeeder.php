@@ -18,7 +18,7 @@ class PageSeeder extends Seeder
             ['nama' => 'Pie Susu', 'slug' => 'pie-susu', 'gambar' => 'default.png', 'posisi' => 'menu'],
             ['nama' => 'Spesial', 'slug' => 'spesial', 'gambar' => 'default.png', 'posisi' => 'menu'],
             ['nama' => 'Produk', 'slug' => 'produk', 'gambar' => 'default.png', 'posisi' => 'menu'],
-            ['nama' => 'Jajanan', 'slug' => 'jajanan', 'gambar' => 'default.png', 'posisi' => 'menu'],
+            ['nama' => 'Acara', 'slug' => 'Acara', 'gambar' => 'default.png', 'posisi' => 'menu'],
             ['nama' => 'Danin Store', 'slug' => 'danin-store', 'gambar' => 'default.png', 'posisi' => 'menu'],
             ['nama' => 'Toko Rekanan', 'slug' => 'toko-rekanan', 'gambar' => 'default.png', 'posisi' => 'menu'],
         ];

@@ -14,6 +14,13 @@
     <link rel="stylesheet" href="{{ asset('asset/fontawesome/css/all.min.css') }}">
     <!-- Styles / Scripts -->
 
+    {{-- <link href="https://cdn.jsdelivr.net/npm/suneditor@latest/dist/css/suneditor.min.css" rel="stylesheet">
+
+
+    <script src="https://cdn.jsdelivr.net/npm/suneditor@latest/dist/suneditor.min.js"></script>
+    <!-- languages (Basic Language: English/en) -->
+    <script src="https://cdn.jsdelivr.net/npm/suneditor@latest/src/lang/ko.js"></script> --}}
+
     @vite(['resources/css/app.css', 'resources/scss/app.scss', 'resources/scss/layout.scss', 'resources/js/app.js'])
 
 </head>

@@ -1,3 +1,3 @@
-<div>
-    {{-- To attain knowledge, add things every day; To attain wisdom, subtract things every day. --}}
+<div class="container px-2 py-3 mx-auto md:px-0">
+    Daftar Produk
 </div>

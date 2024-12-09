@@ -40,6 +40,10 @@ class DashboardController extends Controller
     {
         return view('admin.tampilan');
     }
+    public function userMan()
+    {
+        return view('admin.user-manager');
+    }
     public function setting()
     {
         return view('admin.setting');

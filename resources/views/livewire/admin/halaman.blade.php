@@ -144,9 +144,20 @@
                 @enderror
             </div>
 
+            {{-- <div class="flex flex-col mb-3">
+                <span class="mb-3">Info</span>
+                <div wire:ignore>
+                    <textarea id="sample" wire:model='informasi'></textarea>
+                </div>
+                @error('informasi')
+                    <span>
+                        {{ $message }}
+                    </span>
+                @enderror
+            </div> --}}
             <div class="flex flex-col mb-3">
                 <label for="informasi" class="w-full">Konten :</label>
-                <textarea wire:model='informasi' rows="4" type="text" id="informasi"
+                <textarea wire:model='informasi' rows="auto" type="text" id="informasi"
                     class="px-4 py-1.5 rounded-lg bg-orange-50 border "></textarea>
                 @error('informasi')
                     <span>
@@ -226,7 +237,8 @@
                                 class="block w-full px-2 py-1 text-white bg-orange-500 rounded-lg ">
                                 Komponen
                             </a>
-                            <button wire:click='delete' class="w-full px-2 py-1 text-white bg-orange-500 rounded-lg ">
+                            <button wire:click='delete({{ $hal->id }})'
+                                class="w-full px-2 py-1 text-white bg-orange-500 rounded-lg ">
                                 Hapus
                             </button>
                         </div>
@@ -264,7 +276,8 @@
                                     class="block w-full px-2 py-1 text-white bg-orange-500 rounded-lg ">
                                     Komponen
                                 </a>
-                                <button wire:click='delete'
+                                <button wire:click='delete({{ $sub->id }})'
+                                    wire:confirm="YAKIN AKAN MENGHAPUS HALAMAN INI, Peringatan.. ! bila salah menghapus bisa mengakibatkan website crash"
                                     class="w-full px-2 py-1 text-white bg-orange-500 rounded-lg ">
                                     Hapus
                                 </button>
