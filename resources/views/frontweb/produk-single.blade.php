@@ -1,5 +1,3 @@
 <x-front-layout>
-    <div class="container px-2 py-3 mx-auto md:px-0">
-        Produk Single
-    </div>
+    @livewire('website.produk-single', ['hal_id' => $single->id])
 </x-front-layout>

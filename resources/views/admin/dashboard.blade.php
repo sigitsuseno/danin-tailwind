@@ -1,14 +1,14 @@
 <x-layout-main>
     <div>
         <x-slot name='bread'>
-            bread
+            Dashboard
         </x-slot>
         <x-slot name='theMenu'>
 
         </x-slot>
 
-        <div>
-            Kategori
+        <div class="">
+            test
         </div>
     </div>
 </x-layout-main>

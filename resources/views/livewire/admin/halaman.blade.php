@@ -132,8 +132,22 @@
                     <option>Pilih</option>
                     @if ($posisi == 'sub')
                         @foreach ($halamans as $hal)
-                            <option value="{{ $hal->id }}">{{ $hal->nama }}</option>
+                            @if ($hal->danin_id == null)
+                                <option value="{{ $hal->id }}">{{ $hal->nama }}</option>
+                            @endif
                         @endforeach
+                        {{-- @elseif ($posisi == 'produk')
+                        @foreach ($halamans as $hal)
+                            @if ($hal->danin_id == null)
+                                <option value="{{ $hal->id }}">{{ $hal->nama }}</option>
+                            @endif
+                        @endforeach
+                    @elseif ($posisi == 'acara')
+                        @foreach ($halamans as $hal)
+                            @if ($hal->danin_id == null)
+                                <option value="{{ $hal->id }}">{{ $hal->nama }}</option>
+                            @endif
+                        @endforeach --}}
                     @endif
                 </select>
 

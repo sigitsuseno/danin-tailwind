@@ -2,7 +2,7 @@
     <div class="flex items-center w-full pt-16 h-52">
         <div class="w-[270px] mx-auto md:w-[300px] xl:w-[350px]">
             <a href="/" class="w-2/3 md:w-1/2">
-                <img src="{{ asset('asset/img/logo-leter.png') }}" alt="">
+                <img src="{{ asset('storage/' . $set_ing->logo) }}" alt="">
             </a>
             <div class="mt-5 text-center">
                 <span class="text-[20px] font-medium ">Produsen Pie Susu Asli</span> <br>
@@ -46,7 +46,7 @@
                         class="px-3 py-2 hover:bg-[brown] transition duration-500 rounded-lg block w-full hover:text-white">{{ $navis[5]
                             ? $navis[5]->nama
                             : 'Danin
-                                                                                                                                                                                                                                                                                                                                                                        Store' }}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                Store' }}
                     </a>
                 </li>
                 <li class="flex items-center h-14">
@@ -54,7 +54,7 @@
                         class="px-3 py-2 hover:bg-[brown] transition duration-500 rounded-lg block w-full hover:text-white">{{ $navis[6]
                             ? $navis[6]->nama
                             : 'Toko
-                                                                                                                                                                                                                                                                                                                                                                        Rekanan' }}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                Rekanan' }}
                     </a>
                 </li>
 
@@ -63,19 +63,19 @@
         </div>
 
         <div class="flex gap-3">
-            <a href="https://wa.me/6282225403629"
+            <a href="https://wa.me/{{ $set_ing->no_hp }}"
                 class="w-8 h-8 p-1 overflow-hidden transition duration-500 hover:bg-white hover:rounded-lg">
                 <img src="/asset/img/whatsapp-svgrepo-com.svg" alt="" class="object-contain w-full h-full">
             </a>
-            <a href="https://www.instagram.com/piesusudanin/"
+            <a href="{{ $set_ing->id_ig }}"
                 class="w-8 h-8 p-1 overflow-hidden transition duration-500 hover:bg-white hover:rounded-lg">
                 <img src="/asset/img/instagram-svgrepo-com.svg" alt="" class="object-contain w-full h-full">
             </a>
-            <a href="https://www.facebook.com/piesusu.darin"
+            <a href="{{ $set_ing->id_fb }}"
                 class="w-8 h-8 p-1 overflow-hidden transition duration-500 hover:bg-white hover:rounded-lg">
                 <img src="/asset/img/facebook-svgrepo-com.svg" alt="" class="object-contain w-full h-full">
             </a>
-            <a href="https://www.youtube.com/watch?v=oIEm8bJP0LE"
+            <a href="{{ $set_ing->id_yt }}"
                 class="w-8 h-8 p-1 overflow-hidden transition duration-500 hover:bg-white hover:rounded-lg">
                 <img src="/asset/img/youtube-svgrepo-com.svg" alt="" class="object-contain w-full h-full">
             </a>

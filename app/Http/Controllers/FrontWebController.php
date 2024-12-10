@@ -34,7 +34,9 @@ class FrontWebController extends Controller
     }
     public function produk($slug)
     {
-        return view('frontweb.produk-single');
+        return view('frontweb.produk-single', [
+            'single' => Danin::where('slug', $slug)->first()
+        ]);
     }
     public function beritas()
     {
@@ -42,6 +44,8 @@ class FrontWebController extends Controller
     }
     public function berita($slug)
     {
-        return view('frontweb.berita-single');
+        return view('frontweb.berita-single', [
+            'single' => Danin::where('slug', $slug)->first()
+        ]);
     }
 }

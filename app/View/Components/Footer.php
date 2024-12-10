@@ -3,8 +3,9 @@
 namespace App\View\Components;
 
 use Closure;
-use Illuminate\Contracts\View\View;
+use App\Models\Setting;
 use Illuminate\View\Component;
+use Illuminate\Contracts\View\View;
 
 class Footer extends Component
 {
@@ -21,6 +22,8 @@ class Footer extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.footer');
+        return view('components.footer', [
+            'set_ing' => Setting::find(1)
+        ]);
     }
 }
