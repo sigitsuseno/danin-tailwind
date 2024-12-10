@@ -1,10 +1,24 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<div align="center">
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
 
-## Intalasi
+  <h1>Danin Tailwin</h1>
+
+  <p> Lakasir is a Point of Sale (POS) application built using Laravel for the API, the Filament admin panel for the web application, and Flutter for the mobile application. </p>
+  
+</div>
+
+## Installation
+1. Clone the repository: git clone https://github.com/lakasir/lakasir.git
+2. Navigate to the project directory: cd lakasir
+3. Install dependencies:
+4. Laravel:
+   * `composer install`
+   * `cp .env.example .env`
+   * edit the env based on your local configuration
+   * `php artisan key:generate`
+   * `php artisan migrate --path=database/migrations/tenant --seed`
+   * `php artisan filament:assets`
+5. Javascript:
+  * `npm install`
+  * `npm run build or npm run dev`
+6. Create the user using `php artisan app:create-user`
