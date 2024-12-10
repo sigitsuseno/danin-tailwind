@@ -3,12 +3,10 @@
 
   <h1>Danin Tailwin</h1>
 
-  <p> Lakasir is a Point of Sale (POS) application built using Laravel for the API, the Filament admin panel for the web application, and Flutter for the mobile application. </p>
-  
 </div>
 
 ## Installation
-1. Clone the repository: git clone https://github.com/lakasir/lakasir.git
+1. Clone the repository: git clone https://github.com/sigitsuseno/danin-tailwind.git
 2. Navigate to the project directory: cd lakasir
 3. Install dependencies:
 4. Laravel:
