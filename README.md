@@ -13,8 +13,10 @@
    * `composer install`
    * `cp .env.example .env`
    * edit the env based on your local configuration
+   * add `FILESYSTEM_DISK="public"`
    * `php artisan key:generate`
    * `php artisan migrate --seed`
+   * `php artisan storage:link`
 5. Javascript:
   * `npm install`
   * `npm run build or npm run dev`
