@@ -25,7 +25,7 @@
 
 </head>
 
-<body class="font-sans antialiased dark:bg-black dark:text-white/50">
+<body class="font-sans antialiased dark:bg-orange-50 dark:text-orange-950">
     <div class="dashboard_container with_text">
         <x-sidebar></x-sidebar>
 
