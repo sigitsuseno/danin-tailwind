@@ -25,7 +25,8 @@
     @forelse ($slide_depan->daninSubs as $sub)
         <section class="{{ $sub->kode }}">
             <div class="img_sect">
-                <img src="{{ asset('/storage/image/' . $sub->gambar) }}" alt="">
+                <img src="{{ asset('/storage/image/' . $sub->gambar) }}" alt=""
+                    class="object-cover w-full h-full">
             </div>
             <div class="expl_sect">
                 <div class="expl_head">
@@ -39,7 +40,7 @@
 
                     @foreach ($sub->images as $img)
                         <a href="{{ $img->link }}" class="iccset">
-                            <img src="{{ asset($img->image) }}" alt="">
+                            <img src="{{ asset($img->image) }}" alt="" class="object-cover w-full h-full">
                         </a>
                     @endforeach
 
